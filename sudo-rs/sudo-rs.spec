@@ -29,17 +29,14 @@ cargo build --release --features pam-login
 
 %install
 mkdir -p %{buildroot}/usr/lib/cargo/bin
-#install -Dm4755 target/release/sudo %{buildroot}%{_bindir}/sudo-rs
-#install -Dm0755 target/release/visudo %{buildroot}%{_bindir}/visudo-rs
-#install -Dm4755 target/release/su %{buildroot}%{_bindir}/su-rs
 install -Dm4755 target/release/sudo %{buildroot}/usr/lib/cargo/bin/sudo
 install -Dm0755 target/release/visudo %{buildroot}/usr/lib/cargo/bin/visudo
 install -Dm4755 target/release/su %{buildroot}/usr/lib/cargo/bin/su
 
 %files
-%{_bindir}/sudo-rs
-%{_bindir}/visudo-rs
-%{_bindir}/su-rs
+/usr/lib/cargo/bin/sudo
+/usr/lib/cargo/bin/visudo
+/usr/lib/cargo/bin/su
 %license LICENSE-APACHE
 %license LICENSE-MIT
 %doc README.md
