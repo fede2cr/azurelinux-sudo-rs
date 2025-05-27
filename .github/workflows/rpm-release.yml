@@ -53,7 +53,7 @@ jobs:
       - name: Upload RPM artifact
         uses: actions/upload-artifact@v4
         with:
-          name: rust-coreutils-${{ matrix.arch }}
+          name: sudo-rs-${{ matrix.arch }}
           path: ${{ steps.find_rpm.outputs.rpm_path }}
 
   release:
