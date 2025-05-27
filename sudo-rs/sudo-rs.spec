@@ -4,7 +4,7 @@
 
 Name:           sudo-rs
 Version:        0.2.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Memory safe implementation of sudo and su
 
 License:        MIT OR Apache-2.0
@@ -28,9 +28,13 @@ Memory safe implementation of sudo and su
 cargo build --release --features pam-login
 
 %install
-install -Dm4755 target/release/sudo %{buildroot}%{_bindir}/sudo-rs
-install -Dm0755 target/release/visudo %{buildroot}%{_bindir}/visudo-rs
-install -Dm4755 target/release/su %{buildroot}%{_bindir}/su-rs
+mkdir -p %{buildroot}/usr/lib/cargo/bin
+#install -Dm4755 target/release/sudo %{buildroot}%{_bindir}/sudo-rs
+#install -Dm0755 target/release/visudo %{buildroot}%{_bindir}/visudo-rs
+#install -Dm4755 target/release/su %{buildroot}%{_bindir}/su-rs
+install -Dm4755 target/release/sudo %{buildroot}/usr/lib/cargo/bin/sudo
+install -Dm0755 target/release/visudo %{buildroot}/usr/lib/cargo/bin/visudo
+install -Dm4755 target/release/su %{buildroot}/usr/lib/cargo/bin/su
 
 %files
 %{_bindir}/sudo-rs
@@ -41,5 +45,7 @@ install -Dm4755 target/release/su %{buildroot}%{_bindir}/su-rs
 %doc README.md
 
 %changelog
+* Wed Mar 27 2025 Álvaro Figueroa <alvaro.figueroa@microsoft.com> - 0.2.6-2
+- Compat paths with oxidizr tool
 * Wed Mar 25 2025 Álvaro Figueroa <alvaro.figueroa@microsoft.com> - 0.2.6-1
 - Initial package
