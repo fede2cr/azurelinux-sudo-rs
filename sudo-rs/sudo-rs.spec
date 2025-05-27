@@ -28,9 +28,9 @@ Memory safe implementation of sudo and su
 cargo build --release --features pam-login
 
 %install
-install -Dm1755 target/release/sudo %{buildroot}%{_bindir}/sudo-rs
+install -Dm4755 target/release/sudo %{buildroot}%{_bindir}/sudo-rs
 install -Dm0755 target/release/visudo %{buildroot}%{_bindir}/visudo-rs
-install -Dm1755 target/release/su %{buildroot}%{_bindir}/su-rs
+install -Dm4755 target/release/su %{buildroot}%{_bindir}/su-rs
 
 %files
 %{_bindir}/sudo-rs
