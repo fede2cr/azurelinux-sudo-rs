@@ -34,15 +34,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Extract tag from Github
+        run: |
+          echo "VERSION=${GITHUB_REF#refs/tags/}" | tee -a $GITHUB_ENV
+
       - name: Prepare RPM build environment
         run: |
           rpmdev-setuptree
           cp sudo-rs/*.spec ~/rpmbuild/SPECS/
-          spectool -C ~/rpmbuild/SOURCES/ -g ~/rpmbuild/SPECS/sudo-rs.spec
-
-      - name: Extract tag from Github
-        run: |
-          echo "VERSION=${GITHUB_REF#refs/tags/}" | tee -a $GITHUB_ENV
+          spectool --define "version $VERSION" -C ~/rpmbuild/SOURCES/ -g ~/rpmbuild/SPECS/sudo-rs.spec
 
       - name: Build RPM
         run: |
