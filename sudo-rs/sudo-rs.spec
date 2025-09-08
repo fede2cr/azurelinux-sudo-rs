@@ -3,7 +3,7 @@
 #
 
 Name:           sudo-rs
-Version:        0.2.6
+Version:        %{version}
 Release:        2%{?dist}
 Summary:        Memory safe implementation of sudo and su
 
@@ -42,6 +42,8 @@ install -Dm4755 target/release/su %{buildroot}/usr/lib/cargo/bin/su
 %doc README.md
 
 %changelog
+* Wed Mar 27 2025 Álvaro Figueroa <alvaro.figueroa@microsoft.com> - 0.2.7-1
+- Dynamic version
 * Wed Mar 27 2025 Álvaro Figueroa <alvaro.figueroa@microsoft.com> - 0.2.6-2
 - Compat paths with oxidizr tool
 * Wed Mar 25 2025 Álvaro Figueroa <alvaro.figueroa@microsoft.com> - 0.2.6-1
