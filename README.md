@@ -17,7 +17,7 @@ Start with a brand new AzureLinux 3 VM. Then, inside of it, run:
 ```
 sudo tdnf -y update
 sudo tdnf -y install cargo
-sudo tdnf -y install https://github.com/fede2cr/azurelinux-sudo-rs/releases/download/v0.2.6-2/sudo-rs-0.2.6-2.azl3.$(uname -m).rpm
+sudo tdnf -y install https://github.com/fede2cr/azurelinux-sudo-rs/releases/download/v0.2.10/sudo-rs-0.2.10-2.azl3.$(uname -m).rpm
 cargo install --git https://github.com/fede2cr/oxidizr --branch azurelinux
 sudo .cargo/bin/oxidizr enable -e sudo-rs
 ls -l $(which sudo)
